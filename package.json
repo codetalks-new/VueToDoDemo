@@ -1,0 +1,27 @@
+{
+  "name": "vuetododemo1",
+  "version": "1.0.0",
+  "description": "A Vue And TypeScript ToDo Demo Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/banxi1988/VueToDoDemo.git"
+  },
+  "keywords": [
+    "vue",
+    "typescript",
+    "todo"
+  ],
+  "author": "banxi1988",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/banxi1988/VueToDoDemo/issues"
+  },
+  "homepage": "https://github.com/banxi1988/VueToDoDemo#readme",
+  "dependencies": {
+    "vue": "^2.5.16"
+  }
+}

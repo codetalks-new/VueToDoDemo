@@ -15,8 +15,8 @@
     <p v-if="error" class="error">{{error}}</p>
     <ul>
       <li v-for="todo in todos">
-        <span v-if="todo.done" class="done-marker" @click="todo.markDone">✓</span>
-        <span v-else class="todo-marker" @click="todo.markTodo">☐</span>
+        <span v-show="todo.done" class="done-marker" @click="markTodo(todo)">✓</span>
+        <span v-show="!todo.done" class="todo-marker" @click="markDone(todo)">☐</span>
         <span class="content">{{todo.content}}</span>
       </li>
     </ul>

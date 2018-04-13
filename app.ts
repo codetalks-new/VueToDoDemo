@@ -11,13 +11,7 @@ class Todo{
     this.created = new Date()
   }
 
-  markDone():void{
-    this.done = true
-  }
 
-  markTodo():void{
-    this.done = false
-  }
 }
 
 @Component
@@ -41,6 +35,14 @@ class App extends Vue{
 
   clearError():void{
     this.error = null
+  }
+
+  markDone(todo:Todo):void{
+    todo.done = true
+  }
+
+  markTodo(todo:Todo):void{
+    todo.done = false
   }
 }
 

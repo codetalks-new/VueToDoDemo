@@ -1,20 +1,18 @@
 import Vue from "vue"
+import Component from "vue-class-component"
 
- var app = new Vue({
-      el: '#app',
-      data: {
-        greeting: 'Welcome to your Vue.js app!',
-        docsURL: 'http://vuejs.org/guide/',
-        discordURL: 'https://chat.vuejs.org',
-        forumURL: 'http://forum.vuejs.org/'
-      },
-      methods: {
-        humanizeURL: function (url) {
-          return url
-            .replace(/^https?:\/\//, '')
-            .replace(/\/$/, '')
-        }
-      }
-    })
+@Component
+class App extends Vue{
+  greeting = 'Welcome to your Vue.js app!'
+  docsURL = 'http://vuejs.org/guide/'
+  discordURL = 'https://chat.vuejs.org'
+  forumURL = 'http://forum.vuejs.org/'
 
-export default app
+  humanizeURL(url:string): string{
+    return url
+      .replace(/^https?:\/\//, '')
+      .replace(/\/$/, '')
+  }
+}
+
+const app = new App({ el: '#app', })

@@ -1,30 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Welcome to Vue</title>
+  <title>Vue ToDo Demo</title>
+  <style>
+    .error{color:red;}
+    .done-marker,.todo-marker{font-size:1.5rem}
+  </style>
 </head>
 <body>
   <div id="app">
-    <img src="https://vuejs.org/images/logo.png" alt="Vue logo">
-    <h1>{{ greeting }}</h1>
+    <h1>我的待办事项:</h1>
+    <input v-model="newTodoText" @keyup.enter="create"  @input="clearError" placeholder="请输入待办事项">
+    <button @click="create" >创建</button> 
+    <p v-if="error" class="error">{{error}}</p>
     <ul>
-      <li>
-        To learn more about Vue, visit
-        <a :href="docsURL" target="_blank">
-          {{ humanizeURL(docsURL) }}
-        </a>
-      </li>
-      <li>
-        For live help with simple questions, check out
-        <a :href="discordURL" target="_blank">
-          the Discord chat
-        </a>
-      </li>
-      <li>
-        For more complex questions, post to
-        <a :href="forumURL" target="_blank">
-          the forum
-        </a>
+      <li v-for="todo in todos">
+        <span v-if="todo.done" class="done-marker" @click="todo.markDone">✓</span>
+        <span v-else class="todo-marker" @click="todo.markTodo">☐</span>
+        <span class="content">{{todo.content}}</span>
       </li>
     </ul>
   </div>

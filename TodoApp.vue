@@ -5,7 +5,9 @@
     <button @click="create" >创建</button> 
     <p v-if="error" class="error">{{error}}</p>
     <ul>
-      <todo-item v-for="todo in todos" :todo="todo" :key="todo.content"> </todo-item>
+      <todo-item v-for="(todo,index) in todos" :todo="todo" :key="todo.content"
+      @deleteTodo="deleteTodo(index)"
+      > </todo-item>
     </ul>
 </div>
 </template>
@@ -44,6 +46,10 @@ export default class TodoApp extends Vue{
 
   clearError():void{
     this.error = null
+  }
+
+  deleteTodo(index:number):void{
+    this.todos.splice(index, 1)
   }
 }
 

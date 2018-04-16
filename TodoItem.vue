@@ -3,6 +3,7 @@
         <span v-show="todo.done" class="done-marker" @click="markTodo">✓</span>
         <span v-show="!todo.done" class="todo-marker" @click="markDone">☐</span>
         <span class="content">{{todo.content}}</span>
+        <button @click="deleteTodo">删除</button>
       </li>
 </template>
 <style>
@@ -25,6 +26,10 @@ export default class TodoItem extends Vue {
 
   markTodo():void{
     this.todo.done = false
+  }
+
+  deleteTodo():void{
+    this.$emit('deleteTodo')
   }
 }
 </script>

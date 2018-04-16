@@ -14,11 +14,7 @@
     <button @click="create" >创建</button> 
     <p v-if="error" class="error">{{error}}</p>
     <ul>
-      <li v-for="todo in todos">
-        <span v-show="todo.done" class="done-marker" @click="markTodo(todo)">✓</span>
-        <span v-show="!todo.done" class="todo-marker" @click="markDone(todo)">☐</span>
-        <span class="content">{{todo.content}}</span>
-      </li>
+      <todo-item v-for="todo in todos" :todo="todo" :key="todo.content"> </todo-item>
     </ul>
   </div>
   <script src="app.bundle.js"> </script>

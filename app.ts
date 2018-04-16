@@ -1,23 +1,13 @@
 import Vue from "vue"
 import Component from "vue-class-component"
+import TodoItem from "./TodoItem.vue"
+import Todo from "./Todo"
 
-class Todo{
-  content: string
-  created: Date
-  done = false 
-
-  constructor(content:string){
-    this.content = content
-    this.created = new Date()
-  }
-
-
-}
 
 @Component
 class App extends Vue{
   newTodoText = ''
-  todos :Array<Todo> = []
+  todos :Array<Todo> = [new Todo("学习 Vue")]
   hideCompletedTodos = false
   visitCount = 0
   error:any = null
@@ -36,14 +26,10 @@ class App extends Vue{
   clearError():void{
     this.error = null
   }
-
-  markDone(todo:Todo):void{
-    todo.done = true
-  }
-
-  markTodo(todo:Todo):void{
-    todo.done = false
-  }
 }
 
-const app = new App({ el: '#app', })
+const app = new App({ el: '#app',
+  components: {
+    'todo-item': TodoItem
+  }
+})

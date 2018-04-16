@@ -1,21 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
+  <meta charset="utf-8">
   <title>Vue ToDo Demo</title>
-  <style>
-    .error{color:red;}
-    .done-marker,.todo-marker{font-size:1.5rem}
-  </style>
+
 </head>
 <body>
   <div id="app">
-    <h1>我的待办事项:</h1>
-    <input v-model="newTodoText" @keyup.enter="create"  @input="clearError" placeholder="请输入待办事项">
-    <button @click="create" >创建</button> 
-    <p v-if="error" class="error">{{error}}</p>
-    <ul>
-      <todo-item v-for="todo in todos" :todo="todo" :key="todo.content"> </todo-item>
-    </ul>
+
   </div>
   <script src="app.bundle.js"> </script>
 </body>

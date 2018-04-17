@@ -2,7 +2,7 @@
  <div>
      <h3>{{todo.content}} </h3>
      <div>
-         <p><span class="info-label">创建时间:</span> <span class="todo-detail-item">{{todo.created}}</span></p>
+         <p><span class="info-label">创建时间:</span> <span class="todo-detail-item">{{todo.created | friendlyDateTime}}</span></p>
          <p v-if="todo.done"><span class="info-label">完成时间:</span> <span class="todo-detail-item">{{todo.finishTime}}</span></p>
      </div>
      <div> 

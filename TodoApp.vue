@@ -46,10 +46,10 @@ import TodoItemDetail from './TodoItemDetail.vue';
 
 
 @Component({
-    components: {
-        'todo-item': TodoItem,
-        "todo-item-detail":TodoItemDetail
-    }
+  components:{
+      TodoItem,
+      TodoItemDetail
+  }
 })
 export default class TodoApp extends Vue{
   newTodoText = ''
@@ -58,6 +58,7 @@ export default class TodoApp extends Vue{
   visitCount = 0
   error:any = null
 
+  
   create():void{
     const content = this.newTodoText.trim()
     if(content.length  < 1){

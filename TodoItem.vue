@@ -1,5 +1,5 @@
 <template>
-      <li class="todo-list-item">
+      <li class="todo-list-item" v-bind:class="{ active: todo.uiActive }">
         <span v-show="todo.done" class="done-marker" @click="markTodo">✓</span>
         <span v-show="!todo.done" class="todo-marker" @click="markDone">☐</span>
         <span class="content">{{todo.content}}</span>
@@ -9,6 +9,7 @@
 <style>
     .done-marker,.todo-marker{font-size:1.3rem}
     .todo-list-item{ list-style: none;} 
+    .todo-list-item.active{ background: #d1e1f1} 
 </style>
 <script lang="ts">
 import Vue from "vue"

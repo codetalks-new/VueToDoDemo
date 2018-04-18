@@ -44,6 +44,7 @@ import TodoItem from "./TodoItem.vue"
 import Todo from "./Todo"
 import TodoItemDetail from './TodoItemDetail.vue';
 
+import eventBus from './eventBus'
 
 @Component({
   components:{
@@ -79,13 +80,7 @@ export default class TodoApp extends Vue{
       it.uiActive = false
     }
     todo.uiActive = true
-    // for(let vm of this.$children){
-    //   if(vm.todo){
-    //     let oldTodo = vm.todo 
-    //     vm.$set(oldTodo, 'uiActive', oldTodo.id == todo.id)
-    //   }
-    // }
-    this.$refs.todoItemDetail.todo = todo
+    eventBus.$emit('showTodoDetail', todo)
   }
 
   deleteTodo(index:number):void{

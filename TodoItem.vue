@@ -19,7 +19,8 @@ import Todo from "./Todo"
 
 @Component
 export default class TodoItem extends Vue {
-  @Prop() todo:Todo
+  @Prop()
+  todo:Todo = new Todo("")
 
   markDone():void{
     this.todo.done = true

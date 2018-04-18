@@ -16,10 +16,18 @@ import Vue from 'vue'
 import Component from "vue-class-component"
 import { Prop } from "vue-property-decorator"
 import Todo from "./Todo"
+import eventBus from './eventBus'
 
 @Component
 export default class TodoItemDetail extends Vue {
-    @Prop() todo: Todo
+    todo: Todo = new Todo("")
+
+    /**lifecycle hook*/
+    mounted(){
+        eventBus.$on('showTodoDetail', (todo:Todo) => {
+            this.todo = todo
+        })
+    }
 }
 </script>
 
